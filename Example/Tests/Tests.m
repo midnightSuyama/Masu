@@ -6,38 +6,43 @@
 //  Copyright (c) 2014 midnightSuyama. All rights reserved.
 //
 
-SpecBegin(InitialSpecs)
+#import <Masu/Masu.h>
 
-describe(@"these will fail", ^{
+SpecBegin(Masu)
 
-    it(@"can do maths", ^{
-        expect(1).to.equal(2);
-    });
-
-    it(@"can read", ^{
-        expect(@"number").to.equal(@"string");
-    });
+describe(@"view matching", ^{
     
-    it(@"will wait and fail", ^AsyncBlock {
+    NSArray *values = @[
+                        [NSValue valueWithCGSize:CGSizeMake(200.0f, 200.0f)],
+                        [NSValue valueWithCGSize:CGSizeMake(200.0f, 100.0f)],
+                        [NSValue valueWithCGSize:CGSizeMake(100.0f, 200.0f)],
+                        ];
+    for (NSValue *value in values) {
+        __block CGSize size = [value CGSizeValue];
         
-    });
-});
-
-describe(@"these will pass", ^{
-    
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
-    });
-    
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
-    });
-    
-    it(@"will wait and succeed", ^AsyncBlock {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-            done();
+        context([NSString stringWithFormat:@"size %.0fx%.0f", size.width, size.height], ^{
+            __block Masu *masu;
+            
+            beforeEach(^{
+                masu = [[Masu alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+            });
+            
+            it(@"matches default", ^{
+                expect(masu).to.haveValidSnapshot();
+            });
+            
+            it(@"matches background", ^{
+                masu.backgroundColor = [UIColor colorWithRed:0.75f green:1 blue:0.75f alpha:1];
+                expect(masu).to.haveValidSnapshot();
+            });
+            
+            it(@"matches label", ^{
+                masu.text = @"Label";
+                expect(masu).to.haveValidSnapshot();
+            });
         });
-    });
+    }
+    
 });
 
 SpecEnd
