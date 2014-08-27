@@ -14,6 +14,7 @@
 
 + (UIImage *)imageWithSize:(CGSize)size;
 + (UIImage *)imageWithSize:(CGSize)size backgroundColor:(UIColor *)color;
++ (UIImage *)imageWithSize:(CGSize)size labelText:(NSString *)text;
 + (UIImage *)imageWithSize:(CGSize)size backgroundColor:(UIColor *)color labelText:(NSString *)text;
 
 @end

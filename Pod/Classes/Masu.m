@@ -36,6 +36,11 @@
     return [Masu imageWithSize:size backgroundColor:color labelText:nil];
 }
 
++ (UIImage *)imageWithSize:(CGSize)size labelText:(NSString *)text
+{
+    return [Masu imageWithSize:size backgroundColor:nil labelText:text];
+}
+
 + (UIImage *)imageWithSize:(CGSize)size backgroundColor:(UIColor *)color labelText:(NSString *)text
 {
     UIImage *image;
