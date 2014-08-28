@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Masu"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Placeholder for iOS prototyping"
   s.homepage         = "https://github.com/midnightSuyama/Masu"
   s.screenshots      = "https://raw.githubusercontent.com/midnightSuyama/Masu/master/screenshot.png"

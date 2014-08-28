@@ -15,6 +15,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [Masu defaultBackgroundColor];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setNeedsDisplay) name:UIDeviceOrientationDidChangeNotification object:nil];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setNeedsDisplay) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
     return self;
 }
@@ -22,6 +33,11 @@
 - (void)drawRect:(CGRect)rect
 {
     [Masu renderWithSize:rect.size backgroundColor:self.backgroundColor labelText:self.text];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 #pragma mark - UIImage
