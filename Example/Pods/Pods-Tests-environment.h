@@ -21,14 +21,14 @@
 // FBSnapshotTestCase
 #define COCOAPODS_POD_AVAILABLE_FBSnapshotTestCase
 #define COCOAPODS_VERSION_MAJOR_FBSnapshotTestCase 1
-#define COCOAPODS_VERSION_MINOR_FBSnapshotTestCase 1
+#define COCOAPODS_VERSION_MINOR_FBSnapshotTestCase 2
 #define COCOAPODS_VERSION_PATCH_FBSnapshotTestCase 0
 
 // Masu
 #define COCOAPODS_POD_AVAILABLE_Masu
 #define COCOAPODS_VERSION_MAJOR_Masu 0
 #define COCOAPODS_VERSION_MINOR_Masu 1
-#define COCOAPODS_VERSION_PATCH_Masu 0
+#define COCOAPODS_VERSION_PATCH_Masu 3
 
 // Specta
 #define COCOAPODS_POD_AVAILABLE_Specta

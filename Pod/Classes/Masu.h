@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+Masu.h"
 
 @interface Masu : UIView
 

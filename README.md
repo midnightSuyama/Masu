@@ -13,7 +13,7 @@ Placeholder for iOS prototyping
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-```
+``` objective-c
 // UIView demo
 Masu *masu = [[Masu alloc] initWithFrame:CGRectMake(0, 300.0f, 220.0f, 100.0f)];
 masu.backgroundColor = [UIColor colorWithRed:0 green:0.5f blue:0.5f alpha:1];
@@ -25,6 +25,12 @@ UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 [btn setFrame:CGRectMake(220.0f, 300.0f, 100.0f, 100.0f)];
 [btn setImage:[Masu imageWithSize:btn.frame.size backgroundColor:[UIColor grayColor] labelText:@"Button"] forState:UIControlStateNormal];
 [self.view addSubview:btn];
+```
+
+### Category
+
+``` objective-c
+[view showMasu];
 ```
 
 ## Installation
